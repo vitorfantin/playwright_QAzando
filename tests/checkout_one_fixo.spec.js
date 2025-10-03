@@ -25,5 +25,14 @@ test('Sucesso - Preenchendo todos os campos obrigatórios', async ({ page }) => 
 
 test('Falha - Validar todas as mensagens de compos obrigatórios', async ({ page }) => {
 
+await page.getByRole('button', { name: 'Save' }).click();
+await expect( page.getByText('O campo First Name deve ser')).toHaveText('O campo First Name deve ser prenchido');
+await expect( page.getByText('O campo Last Name deve ser')).toHaveText('O campo Last Name deve ser prenchido');
+await expect( page.getByText('O campo Company deve ser')).toHaveText('O campo Company deve ser prenchido');
+await expect( page.getByText('O campo E-mail deve ser')).toHaveText('O campo E-mail deve ser prenchido ou é inválido');
+await expect( page.getByText('O campo Country deve ser')).toHaveText('O campo Country deve ser prenchido');
+await expect( page.getByText('O campo City deve ser')).toHaveText('O campo City deve ser prenchido');
+await expect( page.getByText('O campo Zip Code deve ser')).toHaveText('O campo Zip Code deve ser prenchido');
+await expect( page.getByText('O campo Address deve ser')).toHaveText('O campo Address deve ser prenchido');
+await expect( page.getByText('O campo Additional Notes deve')).toHaveText('O campo Additional Notes deve ser prenchido');
 })
-
